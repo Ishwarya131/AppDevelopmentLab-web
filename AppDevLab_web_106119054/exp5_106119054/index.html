@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<HTML>
+<HEAD>
+<TITLE>Searching for XML Elements </TITLE>
+<SCRIPT>
+function readXMLData()
+{
+var xmlDocumentObject, id , name , addr, phone, email;
+xmlDocumentObject=new XMLHttpRequest();
+xmlDocumentObject.open("GET","userlist.xml",false);
+xmlDocumentObject.send();
+xmlDocumentObject=xmlDocumentObject.responseXML;
+id = xmlDocumentObject.getElementsByTagName("userid");
+name = xmlDocumentObject.getElementsByTagName("username");
+dept = xmlDocumentObject.getElementsByTagName("dept");
+phone = xmlDocumentObject.getElementsByTagName("phone");
+email = xmlDocumentObject.getElementsByTagName("email");
+for (i = 0; i < id.length; i++)
+{
+output=id[i].firstChild.nodeValue;
+if (output == document.getElementById("myText").value)
+{displayDIV.innerHTML = id[i].firstChild.nodeValue + "<br> " + name[i].firstChild.nodeValue +
+"<br> " +
+dept[i].firstChild.nodeValue + "<br> " + phone[i].firstChild.nodeValue+
+"<br>"+email[i].firstChild.nodeValue;
+} } }
+</SCRIPT>
+<style>
+    body {
+      background-color: lightblue;
+    }
+    </style>
+</HEAD>
+<BODY>
+   
+<H1>Enter Students' Roll no</H1>
+<input type="text" id="myText" value="">
+<input type="BUTTON" VALUE="Student Details" ONCLICK="readXMLData()">
+<P>
+<DIV ID="displayDIV"> </DIV>
+
+</BODY>
+</HTML>

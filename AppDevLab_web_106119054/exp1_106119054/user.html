@@ -1,0 +1,214 @@
+<html>
+    <head>
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css?family=Abel|Abril+Fatface|Alegreya|Arima+Madurai|Dancing+Script|Dosis|Merriweather|Oleo+Script|Overlock|PT+Serif|Pacifico|Playball|Playfair+Display|Share|Unica+One|Vibur');
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body {
+    background-image: linear-gradient(-225deg, #df85fa 0%, #949093 100%);
+background-image: linear-gradient(to top, #df85fa 0%, #949093 100%);
+background-attachment: fixed;
+  background-repeat: no-repeat;
+    font-family: 'Vibur', cursive;
+    font-family: 'Abel', sans-serif;
+opacity: .95;
+}
+form {
+    width: 500px;
+    height: 510px;
+    border-radius: 5px;
+    margin: 2% auto;
+    box-shadow: 0 9px 50px hsla(20, 67%, 75%, 0.31);
+    padding: 2%;
+    background-image: linear-gradient(-225deg, #df85fa 50%, #949093 50%);
+    margin-top: 100px;
+}
+form .con {
+    display: -webkit-flex;
+    display: flex;
+  
+    -webkit-justify-content: space-around;
+    justify-content: space-around;
+  
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+  
+      margin: 0 auto;
+}
+header {
+    margin: 1% auto 10% auto;
+    text-align: center;
+}
+header h2 {
+    font-size: 250%;
+    font-family: 'Playfair Display', serif;
+    color: #3e403f;
+}
+
+header p {letter-spacing: 0.05em;}
+.input-item {
+    background: #fff;
+    color: #333;
+    padding: 14.5px 0px 15px 9px;
+    border-radius: 5px 0px 0px 5px;
+}
+input[class="form-input"]{
+    width: 240px;
+    height: 50px;
+  
+    margin-top: 2%;
+    padding: 15px;
+    
+    font-size: 16px;
+    font-family: 'Abel', sans-serif;
+    color: #5E6472;
+  
+    outline: none;
+    border: none;
+  
+    border-radius: 0px 5px 5px 0px;
+    transition: 0.2s linear;
+    
+}
+input[id="txt-input"] {width: 250px;}
+/* focus  */
+input:focus {
+    transform: translateX(-2px);
+    border-radius: 5px;
+}
+button {
+    display: inline-block;
+    color: #252537;
+  
+    width: 250px;
+    height: 50px;
+  
+    padding: 0 20px;
+    background: rgb(194, 247, 152);
+    border-radius: 5px;
+    
+    outline: none;
+    border: none;
+  
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.2s linear;
+    
+    margin: 7% auto;
+    letter-spacing: 0.05em;
+}
+.submits {
+    width: 48%;
+    display: inline-block;
+    
+    margin-left: 2%;
+}
+.frgt-pass {background: transparent;}
+
+
+.sign-up {background: #B8F2E6;}
+
+button:hover {
+    transform: translatey(3px);
+    box-shadow: none;
+    background-color: #79fc75;
+}
+button:hover {
+    animation: ani9 0.4s ease-in-out infinite alternate;
+}
+@keyframes ani9 {
+    0% {
+        transform: translateY(3px);
+    }
+    100% {
+        transform: translateY(5px);
+    }
+}
+</style>
+<body>
+<div class="overlay">
+<form onsubmit="return validation()">
+   <div class="con">
+   <header class="head-form">
+      <h2>Registration Form</h2>
+      
+   </header>
+   <br>
+   <div class="field-set">
+    <span class="input-item">
+        <i class="fa fa-key"></i>
+        </span>   
+    <input class="form-input" id="name" type="text" placeholder="Name" name="namee" >
+    <br>
+    <span class="input-item">
+    <i class="fa fa-key"></i>
+    </span>
+
+    <input class="form-input" type="text" placeholder="Webmail ID" id="mail"  name="mail" >
+    <br>
+    <span class="input-item">
+    <i class="fa fa-key"></i>
+    </span>
+    <input class="form-input" type="text" placeholder="Department" id="username"  name="username" >
+    <br>
+    <span class="input-item">
+    <i class="fa fa-key"></i>
+    </span>
+    <input class="form-input" type="date" placeholder="DOB" id="birth"  name="birth" >
+    <br>
+    <span class="input-item">
+    <i class="fa fa-key"></i>
+    </span>
+    <input class="form-input" type="text" placeholder="Password (min 6 chars)" id="pwd"  name="pass" > 
+      <br>
+      <button class="log-in"> Register </button>
+   </div>
+   
+</div>
+</form>
+</div>
+</body>
+<script>
+    function validation(){
+    var name = document.getElementById("name").value;
+    var email = document.getElementById("mail").value;
+    var username = document.getElementById("username").value;
+    var birthday = document.getElementById("birth").value;
+    var passw = document.getElementById("pwd").value;
+    var letters = /^[A-Za-z]+$/;
+    var letterNumber = /^[0-9a-zA-Z]+$/;
+    var validmail = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})+$/;
+    if(name==""){
+        alert("Please enter your name");
+    }
+    else if(!letters.test(name)){
+        alert("Name field must contain only numbers");
+    }
+    else if(email==""){
+        alert("Please enter your email");
+    }
+    else if(!validmail.test(email)){
+        alert("Please enter a valid email");
+    }
+    else if(username==""){
+        alert("Please enter your department");
+    }
+    else if(!letterNumber.test(username)){
+        alert("Department must contain only letters");
+    }
+    else if(passw==""){
+        alert("Please enter your password");
+    }
+    else if(passw.length < 6){
+        alert("Password must be min of 6 chars");
+    }
+    else{
+        alert("Your details have been saved");
+    }
+    }
+</script>
+</html>
